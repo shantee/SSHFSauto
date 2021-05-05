@@ -168,7 +168,7 @@ function mount(){
     _checkMounted
     _checkDir
     echo -e "${bold}-> mounting $REMOTEDIR ...${reset}\n"; 
-    echo $sshmdp | sshfs -o password_stdin -o allow_other -p $(echo $sshport) $(echo $sshlogin)@$(echo $sshserver):$(echo $REMOTEDIR) $(echo $LOCALDIR) && echo "ok"
+    echo $sshmdp | sshfs -o password_stdin -o allow_other -p $(echo $sshport) $(echo $sshlogin)@$(echo $sshserver):$(echo $REMOTEDIR) $(echo $LOCALDIR) && echo "ok" || echo "PROBLEM ! : You should try with sudo or check if 'user_allow_other' is set in /etc/fuse.conf"
     echo
 }
 #
